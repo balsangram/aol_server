@@ -51,21 +51,21 @@ console.log(action,"action");
 // Add new action
 export const addAction = async (req, res) => {
   try {
-      const { usertype, language, img, name, link } = req.body;
+      const { usertype, language, img, content, link } = req.body;
 
       // Check if all required fields are provided
-      if (!usertype || !language || !img || !name || !link) {
+      if (!usertype || !language || !img || !content || !link) {
           return res.status(400).json({ message: "All fields are required" });
       }
 
       // Check if the action already exists
-      // const existingAction = await Action.findOne({ usertype, language, name });
+      // const existingAction = await Action.findOne({ usertype, language, content });
       // if (existingAction) {
       //     return res.status(400).json({ message: "Action already exists" });
       // }
 
       // Create and save new action
-      const newAction = new Action({ usertype, language, img, name, link });
+      const newAction = new Action({ usertype, language, img, content, link });
       await newAction.save();
 console.log(newAction);
 

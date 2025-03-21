@@ -9,7 +9,7 @@ const actionSchema = new mongoose.Schema(
     usertype:{type: String, required: true},
     language: { type: String, required: true },
     img: { type: String, required: true },
-    name: { type: String, required: true },
+    content: { type: String, required: true },
     link: { type: String, required: true }
   },
   { timestamps: true }
