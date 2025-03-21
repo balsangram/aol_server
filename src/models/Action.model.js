@@ -2,10 +2,11 @@ import mongoose from 'mongoose';
 
 const actionSchema = new mongoose.Schema(
   {
-    userType: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "UserType" 
-    },
+    // userType: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "UserType" 
+    // },
+    usertype:{type: String, required: true},
     language: { type: String, required: true },
     img: { type: String, required: true },
     name: { type: String, required: true },

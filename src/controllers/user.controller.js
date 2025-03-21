@@ -1,5 +1,5 @@
 import UserType from "../models/UserType.model.js";
-import Action from "../models/UserType.model.js";
+import Action from "../models/Action.model.js";
 // Show All Cards
 export const userType = async (req, res) => {
     try {
@@ -36,6 +36,7 @@ export const userType = async (req, res) => {
     try {
         const { usertype } = req.params;
         const actions = await Action.find({ usertype });
+console.log(action,"action");
 
         if (!actions.length) {
             return res.status(404).json({ message: "No actions found" });
