@@ -5,7 +5,7 @@ const userTypeSchema = new mongoose.Schema({
         type:String,
         require: true
     },
-    name: {
+    usertype: {
         type: String,
         required: true 
     }
