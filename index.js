@@ -8,7 +8,7 @@ import authRoutes from './src/routes/authRoutes.js';
 import userRoutes from "./src/routes/userRoutes.js"
 
 dotenv.config();
-connectDB();
+
 
 const app = express();
 
@@ -24,6 +24,17 @@ app.use('/user', userRoutes)
 app.get("/", (req, res) => {
     res.send("Hello, this project is Art Of Living");
 });
-
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const startServer = async () => {
+    try {
+      await connectDB(); // Wait for the database connection
+      console.log("Database connected successfully");
+  
+      app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    } catch (error) {
+      console.log("connectDB not working", error);
+      process.exit(1); // Exit the process if DB connection fails
+    }
+  };
+  
+  startServer();

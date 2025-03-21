@@ -58,10 +58,10 @@ export const addAction = async (req, res) => {
       }
 
       // Check if the action already exists
-      const existingAction = await Action.findOne({ usertype, language, name });
-      if (existingAction) {
-          return res.status(400).json({ message: "Action already exists" });
-      }
+      // const existingAction = await Action.findOne({ usertype, language, name });
+      // if (existingAction) {
+      //     return res.status(400).json({ message: "Action already exists" });
+      // }
 
       // Create and save new action
       const newAction = new Action({ usertype, language, img, name, link });
